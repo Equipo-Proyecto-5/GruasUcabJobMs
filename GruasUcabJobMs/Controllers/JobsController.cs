@@ -28,5 +28,19 @@ namespace GruasUcabJobMs.Controllers
                 return StatusCode(500, e.Message + "Hubo un error al procesar la busqueda");
             }
         }
+        [HttpGet("/gruaExpirada")]
+        public async Task<IActionResult> GruasExpiradas()
+        {
+            try
+            {
+                var query = new GruaExpiradaQuery();
+                await Mediator.Send(query);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message + "Hubo un error al procesar la busqueda");
+            }
+        }
     }
 }
