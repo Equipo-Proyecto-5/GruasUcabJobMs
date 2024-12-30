@@ -23,6 +23,10 @@ builder.Services.AddHttpClient<IProvidersMsService, ProvidersMsService>(client =
 {
     client.BaseAddress = new Uri("https://localhost:7255");
 });
+builder.Services.AddHttpClient<IUserMsService, UsersMsService>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7157");
+});
 var dbConnectionStringHangfire = builder.Configuration.GetValue<string>("DBConnectionStringsHangfire");
 
 builder.Services.AddHangfire(config =>
@@ -43,6 +47,7 @@ if (app.Environment.IsDevelopment())
 app.UseHangfireDashboard();
 RecurringJob.AddOrUpdate<JobsController>("asignacion-vencida-grua", service => service.OrdenesExpiradas(), "*/30 * * * * *"); // Adjust the schedule as needed
 RecurringJob.AddOrUpdate<JobsController>("asignacion-vencida-localizacion-grua", service => service.GruasExpiradas(), "*/30 * * * * *"); // Adjust the schedule as needed
+RecurringJob.AddOrUpdate<JobsController>("procesar-envio-notificacion", service => service.ProcesarEnvioNotificacion(), Cron.Minutely); // Adjust the schedule as needed
 
 app.UseHttpsRedirection();
 
