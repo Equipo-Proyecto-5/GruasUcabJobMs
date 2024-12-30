@@ -42,5 +42,19 @@ namespace GruasUcabJobMs.Controllers
                 return StatusCode(500, e.Message + "Hubo un error al procesar la busqueda");
             }
         }
+        [HttpGet("/enviarNotificacion")]
+        public async Task<IActionResult> ProcesarEnvioNotificacion()
+        {
+            try
+            {
+                var query = new ProcesarEnvioNotificacionQuery();
+                await Mediator.Send(query);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message + "Hubo un error en el procesamiento");
+            }
+        }
     }
 }
