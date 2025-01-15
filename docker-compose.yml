@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  gruasucabjobms:
+    image: gruasucabjobms:latest
+    build:
+      context: .
+      dockerfile: GruasUcabJobMs/Dockerfile
+    ports:
+      - "5235:5235"
+      - "7100:7100"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - Logging__LogLevel__Default=Information
+      - Logging__LogLevel__Microsoft.AspNetCore=Warning
+      - AllowedHosts=*
+      - DBConnectionStringsHangfire=Server=labs-dbservices01.ucab.edu.ve;Database=hangfire_db;Port=5432;User Id=gmartinez;Password=123456
+      - ServiosUrl__MsOrder=http://ec2-18-216-27-227.us-east-2.compute.amazonaws.com:5101
+      - ServiosUrl__MsOrderVencida=http://ec2-18-216-27-227.us-east-2.compute.amazonaws.com:5101/OrdenExpirada
+      - ServiosUrl__MsProviderVencido=http://ec2-3-17-11-0.us-east-2.compute.amazonaws.com:5039/expired
+      - ServiosUrl__MsUserEnviaNotificacion=http://ec2-3-145-211-144.us-east-2.compute.amazonaws.com:5163/send-notifications
+      - ASPNETCORE_URLS=http://+:5235;https://+:7100

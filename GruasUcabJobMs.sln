@@ -1,17 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GruasUcabJobMs", "GruasUcabJobMs\GruasUcabJobMs.csproj", "{DCB8F78F-EA02-4E91-A430-621DB586BCB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GruasUcabJobMs", "GruasUcabJobMs\GruasUcabJobMs.csproj", "{DCB8F78F-EA02-4E91-A430-621DB586BCB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobMs.Core", "JobMs.Core\JobMs.Core.csproj", "{256A6480-CF1A-4AC1-9779-0E4CAAB0DBA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobMs.Core", "JobMs.Core\JobMs.Core.csproj", "{256A6480-CF1A-4AC1-9779-0E4CAAB0DBA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobMs.Domain", "JobMs.Domain\JobMs.Domain.csproj", "{A38EAB00-DCA1-4E23-B639-42721052A754}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobMs.Domain", "JobMs.Domain\JobMs.Domain.csproj", "{A38EAB00-DCA1-4E23-B639-42721052A754}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobMs.Application", "JobMs.Application\JobMs.Application.csproj", "{7FC35478-58B5-4A9D-91FF-F4D7C7926058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobMs.Application", "JobMs.Application\JobMs.Application.csproj", "{7FC35478-58B5-4A9D-91FF-F4D7C7926058}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobMs.Infrastructure", "JobMs.Infrastructure\JobMs.Infrastructure.csproj", "{6BEDD716-A378-4688-8BAA-4EDE5EE5AB7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobMs.Infrastructure", "JobMs.Infrastructure\JobMs.Infrastructure.csproj", "{6BEDD716-A378-4688-8BAA-4EDE5EE5AB7A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{87E56486-F3D0-491E-9B3F-2C5AC3978E8B}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

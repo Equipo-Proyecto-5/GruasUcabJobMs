@@ -9,6 +9,16 @@ var builder = WebApplication.CreateBuilder(args);
 var applicationAssembly = Assembly.Load("JobMs.Application");
 builder.Services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(applicationAssembly));
 
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+   options.ListenAnyIP(5235); // Puerto HTTP
+    options.ListenAnyIP(7100); // Puerto HTTPS
+});
+
+
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -17,15 +27,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient<IOrdersMsService, OrdersMsService>(client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7057");
+    client.BaseAddress = new Uri("http://ec2-18-216-27-227.us-east-2.compute.amazonaws.com:5101/swagger");
 });
 builder.Services.AddHttpClient<IProvidersMsService, ProvidersMsService>(client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7255");
+    client.BaseAddress = new Uri("http://ec2-3-17-11-0.us-east-2.compute.amazonaws.com:5039/swagger");
 });
 builder.Services.AddHttpClient<IUserMsService, UsersMsService>(client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7157");
+    client.BaseAddress = new Uri("http://ec2-3-145-211-144.us-east-2.compute.amazonaws.com:5163/swagger");
 });
 var dbConnectionStringHangfire = builder.Configuration.GetValue<string>("DBConnectionStringsHangfire");
 
